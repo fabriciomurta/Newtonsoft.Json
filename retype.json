@@ -2,7 +2,7 @@
   "input": "docs",
   "output": "retype",
 
-  "base": "Newtonsoft.Json",
+  "base": ".",
 
   "code": [{
     "input": "Src/Newtonsoft.Json"
