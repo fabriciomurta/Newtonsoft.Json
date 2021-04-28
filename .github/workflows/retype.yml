@@ -22,6 +22,6 @@ jobs:
         with:
           license: ${{ secrets.RETYPE_LICENSE_KEY }}
 
-      - uses: retypeapp/action-github@v1
+      - uses: fabriciomurta/ragha-github@issue6
         with:
           update-branch: true
