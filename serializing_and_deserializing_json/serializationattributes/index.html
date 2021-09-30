@@ -3,19 +3,34 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-root" content="/.">
     <meta name="turbo-cache-control" content="no-cache">
 
+    <!-- Primary Meta Tags -->
     <title>Serialization Attributes</title>
-
+    <meta name="title" content="Serialization Attributes">
     <meta name="description" content="Attributes can be used to control how Json.NET serializes and deserializes .NET objects." />
 
-    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/./serializing_and_deserializing_json/serializationattributes/">
+    <meta property="og:title" content="Serialization Attributes">
+    <meta property="og:description" content="Attributes can be used to control how Json.NET serializes and deserializes .NET objects.">
 
-    <link href="/Newtonsoft.Json/favicon.ico" rel="icon" />
-    <link href="/Newtonsoft.Json/resources/css/retype.css" rel="stylesheet" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="/./serializing_and_deserializing_json/serializationattributes/">
+    <meta property="twitter:title" content="Serialization Attributes">
+    <meta property="twitter:description" content="Attributes can be used to control how Json.NET serializes and deserializes .NET objects.">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("/./doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <script type="text/javascript" src="/Newtonsoft.Json/resources/js/config.js" defer></script>
-    <script type="text/javascript" src="/Newtonsoft.Json/resources/js/retype.js" defer></script>
+    <link href="/./favicon.ico" rel="icon" />
+    <link href="/./resources/css/retype.css?v=1.9.686342985264" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/./resources/js/config.js?v=1.9.686342985264" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/./resources/js/retype.js?v=1.9" defer data-turbo-track="reload"></script>
+    <script id="prism-js" type="text/javascript" src="/./resources/js/prism.js?v=1.9.686342985264" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -30,13 +45,9 @@
         <!-- Logo -->
         <div class="flex items-center justify-between h-full py-2 md:w-75">
             <div class="flex items-center px-2 md:px-6">
-                <span id="docs-site-logo" class="dark:text-white text-2xl leading-snug font-semibold line-clamp-1 md:line-clamp-2">
-                    <a href="/Newtonsoft.Json/">
-                        <img class="dark:hidden" src="/Newtonsoft.Json/static/jsonnet-logo.svg">
-                        <img class="hidden dark:block" src="/Newtonsoft.Json/static/jsonnet-logo-dark.svg">
-                    </a>
-                </span>
-                <span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                <a id="docs-site-logo" href="/./" class="flex items-center leading-snug text-2xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Project Name</span>
+                </a>
             </div>
 
             <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
@@ -122,7 +133,7 @@
         <a
     class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in"
     target="_blank"
-    href="https://retype.com"
+    href="https://retype.com/"
     rel="noopener"
 >
     <span class="text-xs whitespace-nowrap">Powered by</span>
@@ -161,7 +172,7 @@
             <a
     class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in"
     target="_blank"
-    href="https://retype.com"
+    href="https://retype.com/"
     rel="noopener"
 >
     <span class="text-xs whitespace-nowrap">Powered by</span>
@@ -191,13 +202,13 @@
 </doc-anchor-target>
 <p>Attributes can be used to control how Json.NET serializes and deserializes .NET objects.</p>
 <ul>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsonobjectattribute/">JsonObjectAttribute</a> - Placed on classes to control how they should be serialized as a JSON object.</li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsonarrayattribute/">JsonArrayAttribute</a> - Placed on collections to control how they should be serialized as a JSON array.</li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsondictionaryattribute/">JsonDictionaryAttribute</a> - Placed on dictionaries to control how they should be serialized as a JSON object.</li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsonpropertyattribute/">JsonPropertyAttribute</a> - Placed on fields and properties to control how they should be serialized as a property in a JSON object.</li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsonconverterattribute/">JsonConverterAttribute</a> - Placed on either classes or fields and properties to specify which JsonConverter should be used during serialization.</li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsonextensiondataattribute/">JsonExtensionDataAttribute</a> - Placed on a collection field or property to deserialize properties with no matching class member into the specified collection and write values during serialization.</li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsonconstructorattribute/">JsonConstructorAttribute</a> - Placed on a constructor to specify that it should be used to create the class during deserialization.</li>
+<li><a href="/api/newtonsoft/json/jsonobjectattribute/">JsonObjectAttribute</a> - Placed on classes to control how they should be serialized as a JSON object.</li>
+<li><a href="/api/newtonsoft/json/jsonarrayattribute/">JsonArrayAttribute</a> - Placed on collections to control how they should be serialized as a JSON array.</li>
+<li><a href="/api/newtonsoft/json/jsondictionaryattribute/">JsonDictionaryAttribute</a> - Placed on dictionaries to control how they should be serialized as a JSON object.</li>
+<li><a href="/api/newtonsoft/json/jsonpropertyattribute/">JsonPropertyAttribute</a> - Placed on fields and properties to control how they should be serialized as a property in a JSON object.</li>
+<li><a href="/api/newtonsoft/json/jsonconverterattribute/">JsonConverterAttribute</a> - Placed on either classes or fields and properties to specify which JsonConverter should be used during serialization.</li>
+<li><a href="/api/newtonsoft/json/jsonextensiondataattribute/">JsonExtensionDataAttribute</a> - Placed on a collection field or property to deserialize properties with no matching class member into the specified collection and write values during serialization.</li>
+<li><a href="/api/newtonsoft/json/jsonconstructorattribute/">JsonConstructorAttribute</a> - Placed on a constructor to specify that it should be used to create the class during deserialization.</li>
 </ul>
 <doc-anchor-target id="standard-net-serialization-attributes">
     <h2>
@@ -229,9 +240,9 @@ public class Person
     public string Department { get; set; }
 }</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="json-net-serialization-attributes">
+<doc-anchor-target id="jsonnet-serialization-attributes">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#json-net-serialization-attributes">#</doc-anchor-trigger>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#jsonnet-serialization-attributes">#</doc-anchor-trigger>
         <span>Json.NET Serialization Attributes</span>
     </h2>
 </doc-anchor-target>
@@ -241,17 +252,17 @@ public class Person
         <span>JsonObjectAttribute</span>
     </h2>
 </doc-anchor-target>
-<p>The MemberSerialization flag on this attribute specifies whether member serialization is opt-in (a member must have the JsonProperty or DataMember attribute to be serialized), opt-out (everything is serialized by default but can be ignored with the JsonIgnoreAttribute, Json.NET&#39;s default behavior) or fields (all public and private fields are serialized and properties are ignored).</p>
+<p>The MemberSerialization flag on this attribute specifies whether member serialization is opt-in (a member must have the JsonProperty or DataMember attribute to be serialized), opt-out (everything is serialized by default but can be ignored with the JsonIgnoreAttribute, Json.NET&#x27;s default behavior) or fields (all public and private fields are serialized and properties are ignored).</p>
 <p>Placing the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.datacontractattribute">DataContractAttribute</a> on a type is another way to default member serialization to opt-in.</p>
-<p>The NamingStrategy setting on this attributes can be set to a <a href="/Newtonsoft.Json/api/newtonsoft/json/serialization/namingstrategy/">NamingStrategy</a> type that specifies how property names are serialized.</p>
-<p>Json.NET serializes .NET classes that implement IEnumerable as a JSON array populated with the IEnumerable values. Placing the <a href="/Newtonsoft.Json/api/newtonsoft/json/jsonobjectattribute/">JsonObjectAttribute</a> overrides this behavior and forces the serializer to serialize the class&#39;s fields and properties.</p>
+<p>The NamingStrategy setting on this attributes can be set to a <a href="/api/newtonsoft/json/serialization/namingstrategy/">NamingStrategy</a> type that specifies how property names are serialized.</p>
+<p>Json.NET serializes .NET classes that implement IEnumerable as a JSON array populated with the IEnumerable values. Placing the <a href="/api/newtonsoft/json/jsonobjectattribute/">JsonObjectAttribute</a> overrides this behavior and forces the serializer to serialize the class&#x27;s fields and properties.</p>
 <doc-anchor-target id="jsonarrayattributejsondictionaryattribute">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#jsonarrayattributejsondictionaryattribute">#</doc-anchor-trigger>
         <span>JsonArrayAttribute/JsonDictionaryAttribute</span>
     </h2>
 </doc-anchor-target>
-<p>The <a href="/Newtonsoft.Json/api/newtonsoft/json/jsonarrayattribute/">JsonArrayAttribute</a> and <a href="/Newtonsoft.Json/api/newtonsoft/json/jsondictionaryattribute/">JsonDictionaryAttribute</a> are used to specify whether a class is serialized as that collection type.</p>
+<p>The <a href="/api/newtonsoft/json/jsonarrayattribute/">JsonArrayAttribute</a> and <a href="/api/newtonsoft/json/jsondictionaryattribute/">JsonDictionaryAttribute</a> are used to specify whether a class is serialized as that collection type.</p>
 <p>The collection attributes have options to customize the JsonConverter, type name handling, and reference handling that are applied to collection items.</p>
 <doc-anchor-target id="jsonpropertyattribute">
     <h2>
@@ -265,8 +276,8 @@ public class Person
 <li>JsonPropertyAttribute indicates that a property should be serialized when member serialization is set to opt-in.</li>
 <li>It includes non-public properties in serialization and deserialization.</li>
 <li>It can be used to customize type name, reference, null, and default value handling for the property value.</li>
-<li>It can be used to customize the <a href="/Newtonsoft.Json/api/newtonsoft/json/serialization/namingstrategy/">NamingStrategy</a> of the serialized property name.</li>
-<li>It can be used to customize the property&#39;s collection items JsonConverter, type name handling, and reference handling.</li>
+<li>It can be used to customize the <a href="/api/newtonsoft/json/serialization/namingstrategy/">NamingStrategy</a> of the serialized property name.</li>
+<li>It can be used to customize the property&#x27;s collection items JsonConverter, type name handling, and reference handling.</li>
 </ul>
 <p>The DataMemberAttribute can be used as a substitute for JsonPropertyAttribute.</p>
 <doc-anchor-target id="jsonignoreattribute">
@@ -283,7 +294,7 @@ public class Person
         <span>JsonConverterAttribute</span>
     </h2>
 </doc-anchor-target>
-<p>The <a href="/Newtonsoft.Json/api/newtonsoft/json/jsonconverterattribute/">JsonConverterAttribute</a> specifies which <a href="/Newtonsoft.Json/api/newtonsoft/json/jsonconverter/">JsonConverter</a> is used to convert an object.</p>
+<p>The <a href="/api/newtonsoft/json/jsonconverterattribute/">JsonConverterAttribute</a> specifies which <a href="/api/newtonsoft/json/jsonconverter/">JsonConverter</a> is used to convert an object.</p>
 <p>The attribute can be placed on a class or a member. When placed on a class, the JsonConverter specified by the attribute will be the default way of serializing that class. When the attribute is on a field or property, then the specified JsonConverter will always be used to serialize that value.</p>
 <p>The priority of which JsonConverter is used is member attribute, then class attribute, and finally any converters passed to the JsonSerializer.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
@@ -304,17 +315,17 @@ public class User
 }</code></pre>
 </doc-codeblock></div>
 <p>This example shows the JsonConverterAttribute being applied to a property.</p>
-<p>To apply a JsonConverter to the items in a collection, use either <a href="/Newtonsoft.Json/api/newtonsoft/json/jsonarrayattribute/">JsonArrayAttribute</a>, <a href="/Newtonsoft.Json/api/newtonsoft/json/jsondictionaryattribute/">JsonDictionaryAttribute</a> or <a href="/Newtonsoft.Json/api/newtonsoft/json/jsonpropertyattribute/">JsonPropertyAttribute</a> and set the ItemConverterType property to the converter type you want to use.</p>
+<p>To apply a JsonConverter to the items in a collection, use either <a href="/api/newtonsoft/json/jsonarrayattribute/">JsonArrayAttribute</a>, <a href="/api/newtonsoft/json/jsondictionaryattribute/">JsonDictionaryAttribute</a> or <a href="/api/newtonsoft/json/jsonpropertyattribute/">JsonPropertyAttribute</a> and set the ItemConverterType property to the converter type you want to use.</p>
 <doc-anchor-target id="jsonextensiondataattribute">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#jsonextensiondataattribute">#</doc-anchor-trigger>
         <span>JsonExtensionDataAttribute</span>
     </h2>
 </doc-anchor-target>
-<p>The <a href="/Newtonsoft.Json/api/newtonsoft/json/jsonextensiondataattribute/">JsonExtensionDataAttribute</a> instructs the <a href="/Newtonsoft.Json/api/newtonsoft/json/jsonserializer/">JsonSerializer</a> to deserialize properties with no matching field or property on the type into the specified collection. During serialization the values in this collection are written back to the instance&#39;s JSON object.</p>
+<p>The <a href="/api/newtonsoft/json/jsonextensiondataattribute/">JsonExtensionDataAttribute</a> instructs the <a href="/api/newtonsoft/json/jsonserializer/">JsonSerializer</a> to deserialize properties with no matching field or property on the type into the specified collection. During serialization the values in this collection are written back to the instance&#x27;s JSON object.</p>
 <div><p>All extension data values will be written during serialization, even if a property the same name has already been written.</p>
 </div>
-<p>This example shows the JsonExtensionDataAttribute being applied to a field, unmatched JSON properties being added to the field&#39;s collection during deserialization.</p>
+<p>This example shows the JsonExtensionDataAttribute being applied to a field, unmatched JSON properties being added to the field&#x27;s collection during deserialization.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">Types</div>
 <pre class="language-csharp"><code v-pre class="language-csharp">public class DirectoryAccount
@@ -370,7 +381,7 @@ Console.WriteLine(account.UserName);
         <span>JsonConstructorAttribute</span>
     </h2>
 </doc-anchor-target>
-<p>The <a href="/Newtonsoft.Json/api/newtonsoft/json/jsonconstructorattribute/">JsonConstructorAttribute</a> instructs the <a href="/Newtonsoft.Json/api/newtonsoft/json/jsonserializer/">JsonSerializer</a> to use a specific constructor when deserializing a class. It can be used to create a class using a parameterized constructor instead of the default constructor, or to pick which specific parameterized constructor to use if there are multiple.</p>
+<p>The <a href="/api/newtonsoft/json/jsonconstructorattribute/">JsonConstructorAttribute</a> instructs the <a href="/api/newtonsoft/json/jsonserializer/">JsonSerializer</a> to use a specific constructor when deserializing a class. It can be used to create a class using a parameterized constructor instead of the default constructor, or to pick which specific parameterized constructor to use if there are multiple.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">Types</div>
 <pre class="language-csharp"><code v-pre class="language-csharp">public class User
@@ -409,32 +420,26 @@ Console.WriteLine(user.UserName);
     </h2>
 </doc-anchor-target>
 <ul>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsonobjectattribute/">JsonObjectAttribute</a></li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsonarrayattribute/">JsonArrayAttribute</a></li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsondictionaryattribute/">JsonDictionaryAttribute</a></li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsonpropertyattribute/">JsonPropertyAttribute</a></li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsonconverterattribute/">JsonConverterAttribute</a></li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsonextensiondataattribute/">JsonExtensionDataAttribute</a></li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsonconstructorattribute/">JsonConstructorAttribute</a></li>
+<li><a href="/api/newtonsoft/json/jsonobjectattribute/">JsonObjectAttribute</a></li>
+<li><a href="/api/newtonsoft/json/jsonarrayattribute/">JsonArrayAttribute</a></li>
+<li><a href="/api/newtonsoft/json/jsondictionaryattribute/">JsonDictionaryAttribute</a></li>
+<li><a href="/api/newtonsoft/json/jsonpropertyattribute/">JsonPropertyAttribute</a></li>
+<li><a href="/api/newtonsoft/json/jsonconverterattribute/">JsonConverterAttribute</a></li>
+<li><a href="/api/newtonsoft/json/jsonextensiondataattribute/">JsonExtensionDataAttribute</a></li>
+<li><a href="/api/newtonsoft/json/jsonconstructorattribute/">JsonConstructorAttribute</a></li>
 </ul>
 
-    
+
+
+
                 <!-- Required only on API pages -->
                 <doc-toolbar-member-filter-no-results />
             </div>
 
-            <div class="mt-14 flex flex-wrap items-center justify-between">
-    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/geoffreymcgill/Newtonsoft.Json/blob/master/docs/Serializing_and_Deserializing_JSON/SerializationAttributes.md" target="_blank" rel="noopener">
-        <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-        <span>Edit this page</span>
-    </a>
-
-    <!--<p class="my-2.5 text-gray-500 dark:text-dark-350 text-sm">Last updated on <strong>2021-03-14</strong> by <strong>Geoffrey McGill</strong></p>-->
-</div>
-
+            
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-6 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/Newtonsoft.Json/serializing_and_deserializing_json/reducingserializedjsonsize">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/./serializing_and_deserializing_json/reducingserializedjsonsize/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
@@ -444,9 +449,9 @@ Console.WriteLine(user.UserName);
     </div>
 
     <div class="w-1/2">
-        <a class="px-6 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/Newtonsoft.Json/serializing_and_deserializing_json/serializationcallbacks">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/./serializing_and_deserializing_json/serializationcallbacks/">
             <span>
-                <span class="block text-right text-xs font-normal text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
                 <span class="block mt-1">Serialization Callbacks</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
@@ -473,7 +478,7 @@ Console.WriteLine(user.UserName);
 </ul>
 
     </div>
-    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>&#169; 2021 Newtonsoft</p>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© 2021 Newtonsoft</p>
 </div>
 </footer>
 
@@ -504,6 +509,6 @@ Console.WriteLine(user.UserName);
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Serialization Attributes", icon: "file" }</script>
+        <script>window.__DOCS__ = { "title": "Serialization Attributes", icon: "file", hasPrism: true, hasMermaid: false }</script>
     </body>
 </html>

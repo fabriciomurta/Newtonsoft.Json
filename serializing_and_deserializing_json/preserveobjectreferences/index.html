@@ -3,19 +3,34 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-root" content="/.">
     <meta name="turbo-cache-control" content="no-cache">
 
+    <!-- Primary Meta Tags -->
     <title>Preserving Object References</title>
-
+    <meta name="title" content="Preserving Object References">
     <meta name="description" content="By default Json.NET will serialize all objects it encounters by value." />
 
-    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/./serializing_and_deserializing_json/preserveobjectreferences/">
+    <meta property="og:title" content="Preserving Object References">
+    <meta property="og:description" content="By default Json.NET will serialize all objects it encounters by value.">
 
-    <link href="/Newtonsoft.Json/favicon.ico" rel="icon" />
-    <link href="/Newtonsoft.Json/resources/css/retype.css" rel="stylesheet" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="/./serializing_and_deserializing_json/preserveobjectreferences/">
+    <meta property="twitter:title" content="Preserving Object References">
+    <meta property="twitter:description" content="By default Json.NET will serialize all objects it encounters by value.">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("/./doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <script type="text/javascript" src="/Newtonsoft.Json/resources/js/config.js" defer></script>
-    <script type="text/javascript" src="/Newtonsoft.Json/resources/js/retype.js" defer></script>
+    <link href="/./favicon.ico" rel="icon" />
+    <link href="/./resources/css/retype.css?v=1.9.686342985264" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/./resources/js/config.js?v=1.9.686342985264" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/./resources/js/retype.js?v=1.9" defer data-turbo-track="reload"></script>
+    <script id="prism-js" type="text/javascript" src="/./resources/js/prism.js?v=1.9.686342985264" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -30,13 +45,9 @@
         <!-- Logo -->
         <div class="flex items-center justify-between h-full py-2 md:w-75">
             <div class="flex items-center px-2 md:px-6">
-                <span id="docs-site-logo" class="dark:text-white text-2xl leading-snug font-semibold line-clamp-1 md:line-clamp-2">
-                    <a href="/Newtonsoft.Json/">
-                        <img class="dark:hidden" src="/Newtonsoft.Json/static/jsonnet-logo.svg">
-                        <img class="hidden dark:block" src="/Newtonsoft.Json/static/jsonnet-logo-dark.svg">
-                    </a>
-                </span>
-                <span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                <a id="docs-site-logo" href="/./" class="flex items-center leading-snug text-2xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Project Name</span>
+                </a>
             </div>
 
             <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
@@ -122,7 +133,7 @@
         <a
     class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in"
     target="_blank"
-    href="https://retype.com"
+    href="https://retype.com/"
     rel="noopener"
 >
     <span class="text-xs whitespace-nowrap">Powered by</span>
@@ -161,7 +172,7 @@
             <a
     class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in"
     target="_blank"
-    href="https://retype.com"
+    href="https://retype.com/"
     rel="noopener"
 >
     <span class="text-xs whitespace-nowrap">Powered by</span>
@@ -224,7 +235,7 @@ string json = JsonConvert.SerializeObject(people, Formatting.Indented);
         <span>PreserveReferencesHandling</span>
     </h2>
 </doc-anchor-target>
-<p>Setting <a href="/Newtonsoft.Json/api/newtonsoft/json/preservereferenceshandling/">PreserveReferencesHandling</a> will track object references when serializing and deserializing JSON.</p>
+<p>Setting <a href="/api/newtonsoft/json/preservereferenceshandling/">PreserveReferencesHandling</a> will track object references when serializing and deserializing JSON.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">Preserve Object References On</div>
 <pre class="language-csharp"><code v-pre class="language-csharp">string json = JsonConvert.SerializeObject(people, Formatting.Indented,
@@ -261,8 +272,8 @@ bool equal = Object.ReferenceEquals(p1, p2);
 </doc-codeblock></div>
 <p>The first Person in the list is serialized with the addition of an object ID. The second Person in JSON is now only a reference to the first.</p>
 <p>With PreserveReferencesHandling on, now only one Person object is created on deserialization and the list contains two references to it, mirroring what we started with.</p>
-<p>Metadata properties like <code v-pre>$id</code> must be located at the beginning of a JSON object to be successfully detected during deserialization. If you can&#39;t control the order of properties in your JSON object then <a href="/Newtonsoft.Json/api/newtonsoft/json/metadatapropertyhandling/">MetadataPropertyHandling</a> can be used to remove this restriction.</p>
-<div><p>References cannot be preserved when a value is set via a non-default constructor. With a non-default constructor, child values must be created before the parent value so they can be passed into the constructor, making tracking reference impossible. <a href="https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.iserializable">ISerializable</a> types are an example of a class whose values are populated with a non-default constructor and won&#39;t work with PreserveReferencesHandling.</p>
+<p>Metadata properties like <code v-pre>$id</code> must be located at the beginning of a JSON object to be successfully detected during deserialization. If you can&#x27;t control the order of properties in your JSON object then <a href="/api/newtonsoft/json/metadatapropertyhandling/">MetadataPropertyHandling</a> can be used to remove this restriction.</p>
+<div><p>References cannot be preserved when a value is set via a non-default constructor. With a non-default constructor, child values must be created before the parent value so they can be passed into the constructor, making tracking reference impossible. <a href="https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.iserializable">ISerializable</a> types are an example of a class whose values are populated with a non-default constructor and won&#x27;t work with PreserveReferencesHandling.</p>
 </div>
 <doc-anchor-target id="isreference">
     <h2>
@@ -287,7 +298,7 @@ public class EmployeeReference
         <span>IReferenceResolver</span>
     </h2>
 </doc-anchor-target>
-<p>To customize how references are generated and resolved the <a href="/Newtonsoft.Json/api/newtonsoft/json/serialization/ireferenceresolver/">IReferenceResolver</a> interface is available to inherit from and use with the JsonSerializer.</p>
+<p>To customize how references are generated and resolved the <a href="/api/newtonsoft/json/serialization/ireferenceresolver/">IReferenceResolver</a> interface is available to inherit from and use with the JsonSerializer.</p>
 <doc-anchor-target id="see-also">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#see-also">#</doc-anchor-trigger>
@@ -295,26 +306,20 @@ public class EmployeeReference
     </h2>
 </doc-anchor-target>
 <ul>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/preservereferenceshandling/">PreserveReferencesHandling</a></li>
+<li><a href="/api/newtonsoft/json/preservereferenceshandling/">PreserveReferencesHandling</a></li>
 </ul>
 
-    
+
+
+
                 <!-- Required only on API pages -->
                 <doc-toolbar-member-filter-no-results />
             </div>
 
-            <div class="mt-14 flex flex-wrap items-center justify-between">
-    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/geoffreymcgill/Newtonsoft.Json/blob/master/docs/Serializing_and_Deserializing_JSON/PreserveObjectReferences.md" target="_blank" rel="noopener">
-        <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-        <span>Edit this page</span>
-    </a>
-
-    <!--<p class="my-2.5 text-gray-500 dark:text-dark-350 text-sm">Last updated on <strong>2021-03-14</strong> by <strong>Geoffrey McGill</strong></p>-->
-</div>
-
+            
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-6 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/Newtonsoft.Json/serializing_and_deserializing_json/serializingjsonfragments">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/./serializing_and_deserializing_json/serializingjsonfragments/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
@@ -324,9 +329,9 @@ public class EmployeeReference
     </div>
 
     <div class="w-1/2">
-        <a class="px-6 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/Newtonsoft.Json/serializing_and_deserializing_json/reducingserializedjsonsize">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/./serializing_and_deserializing_json/reducingserializedjsonsize/">
             <span>
-                <span class="block text-right text-xs font-normal text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
                 <span class="block mt-1">Reducing Serialized JSON Size</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
@@ -353,7 +358,7 @@ public class EmployeeReference
 </ul>
 
     </div>
-    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>&#169; 2021 Newtonsoft</p>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© 2021 Newtonsoft</p>
 </div>
 </footer>
 
@@ -384,6 +389,6 @@ public class EmployeeReference
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Preserving Object References", icon: "file" }</script>
+        <script>window.__DOCS__ = { "title": "Preserving Object References", icon: "file", hasPrism: true, hasMermaid: false }</script>
     </body>
 </html>

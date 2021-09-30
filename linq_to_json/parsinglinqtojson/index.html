@@ -3,19 +3,34 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-root" content="/.">
     <meta name="turbo-cache-control" content="no-cache">
 
+    <!-- Primary Meta Tags -->
     <title>Parsing JSON</title>
-
+    <meta name="title" content="Parsing JSON">
     <meta name="description" content="LINQ to JSON has methods available for parsing JSON from a string or loading JSON directly from a file." />
 
-    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/./linq_to_json/parsinglinqtojson/">
+    <meta property="og:title" content="Parsing JSON">
+    <meta property="og:description" content="LINQ to JSON has methods available for parsing JSON from a string or loading JSON directly from a file.">
 
-    <link href="/Newtonsoft.Json/favicon.ico" rel="icon" />
-    <link href="/Newtonsoft.Json/resources/css/retype.css" rel="stylesheet" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="/./linq_to_json/parsinglinqtojson/">
+    <meta property="twitter:title" content="Parsing JSON">
+    <meta property="twitter:description" content="LINQ to JSON has methods available for parsing JSON from a string or loading JSON directly from a file.">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("/./doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <script type="text/javascript" src="/Newtonsoft.Json/resources/js/config.js" defer></script>
-    <script type="text/javascript" src="/Newtonsoft.Json/resources/js/retype.js" defer></script>
+    <link href="/./favicon.ico" rel="icon" />
+    <link href="/./resources/css/retype.css?v=1.9.686342985264" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/./resources/js/config.js?v=1.9.686342985264" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/./resources/js/retype.js?v=1.9" defer data-turbo-track="reload"></script>
+    <script id="prism-js" type="text/javascript" src="/./resources/js/prism.js?v=1.9.686342985264" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -30,13 +45,9 @@
         <!-- Logo -->
         <div class="flex items-center justify-between h-full py-2 md:w-75">
             <div class="flex items-center px-2 md:px-6">
-                <span id="docs-site-logo" class="dark:text-white text-2xl leading-snug font-semibold line-clamp-1 md:line-clamp-2">
-                    <a href="/Newtonsoft.Json/">
-                        <img class="dark:hidden" src="/Newtonsoft.Json/static/jsonnet-logo.svg">
-                        <img class="hidden dark:block" src="/Newtonsoft.Json/static/jsonnet-logo-dark.svg">
-                    </a>
-                </span>
-                <span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                <a id="docs-site-logo" href="/./" class="flex items-center leading-snug text-2xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Project Name</span>
+                </a>
             </div>
 
             <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
@@ -122,7 +133,7 @@
         <a
     class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in"
     target="_blank"
-    href="https://retype.com"
+    href="https://retype.com/"
     rel="noopener"
 >
     <span class="text-xs whitespace-nowrap">Powered by</span>
@@ -161,7 +172,7 @@
             <a
     class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in"
     target="_blank"
-    href="https://retype.com"
+    href="https://retype.com/"
     rel="noopener"
 >
     <span class="text-xs whitespace-nowrap">Powered by</span>
@@ -196,7 +207,7 @@
         <span>Parsing JSON text</span>
     </h2>
 </doc-anchor-target>
-<p>JSON values can be read from a string using <a href="/Newtonsoft.Json/api/newtonsoft/json/linq/jtoken/#method-parse">Parse(string)</a>.</p>
+<p>JSON values can be read from a string using <a href="/api/newtonsoft/json/linq/jtoken/#method-parse">Parse(string)</a>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">Parsing a JSON Object from text</div>
 <pre class="language-csharp"><code v-pre class="language-csharp">string json = @&quot;{
@@ -225,7 +236,7 @@ JArray a = JArray.Parse(json);</code></pre>
         <span>Loading JSON from a file</span>
     </h2>
 </doc-anchor-target>
-<p>JSON can also be loaded directly from a file using <a href="/Newtonsoft.Json/api/newtonsoft/json/linq/jtoken/#method-readfrom">ReadFrom(JsonReader)</a>.</p>
+<p>JSON can also be loaded directly from a file using <a href="/api/newtonsoft/json/linq/jtoken/#method-readfrom">ReadFrom(JsonReader)</a>.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">Reading JSON from a file</div>
 <pre class="language-csharp"><code v-pre class="language-csharp">using (StreamReader reader = File.OpenText(@&quot;c:\person.json&quot;))
@@ -241,28 +252,22 @@ JArray a = JArray.Parse(json);</code></pre>
     </h2>
 </doc-anchor-target>
 <ul>
-<li><a href="..">LINQ to JSON</a></li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/linq/jtoken/#method-parse">Parse(string)</a></li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/linq/jtoken/#method-readfrom">ReadFrom(JsonReader)</a></li>
+<li><a href="../">LINQ to JSON</a></li>
+<li><a href="/api/newtonsoft/json/linq/jtoken/#method-parse">Parse(string)</a></li>
+<li><a href="/api/newtonsoft/json/linq/jtoken/#method-readfrom">ReadFrom(JsonReader)</a></li>
 </ul>
 
-    
+
+
+
                 <!-- Required only on API pages -->
                 <doc-toolbar-member-filter-no-results />
             </div>
 
-            <div class="mt-14 flex flex-wrap items-center justify-between">
-    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/geoffreymcgill/Newtonsoft.Json/blob/master/docs/LINQ_to_JSON/ParsingLINQtoJSON.md" target="_blank" rel="noopener">
-        <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-        <span>Edit this page</span>
-    </a>
-
-    <!--<p class="my-2.5 text-gray-500 dark:text-dark-350 text-sm">Last updated on <strong>2021-03-14</strong> by <strong>Geoffrey McGill</strong></p>-->
-</div>
-
+            
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-6 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/Newtonsoft.Json/linq_to_json/creatinglinqtojson">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/./linq_to_json/creatinglinqtojson/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
@@ -272,9 +277,9 @@ JArray a = JArray.Parse(json);</code></pre>
     </div>
 
     <div class="w-1/2">
-        <a class="px-6 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/Newtonsoft.Json/linq_to_json/queryinglinqtojson">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/./linq_to_json/queryinglinqtojson/">
             <span>
-                <span class="block text-right text-xs font-normal text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
                 <span class="block mt-1">Querying JSON with LINQ</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
@@ -301,7 +306,7 @@ JArray a = JArray.Parse(json);</code></pre>
 </ul>
 
     </div>
-    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>&#169; 2021 Newtonsoft</p>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© 2021 Newtonsoft</p>
 </div>
 </footer>
 
@@ -332,6 +337,6 @@ JArray a = JArray.Parse(json);</code></pre>
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Parsing JSON", icon: "file" }</script>
+        <script>window.__DOCS__ = { "title": "Parsing JSON", icon: "file", hasPrism: true, hasMermaid: false }</script>
     </body>
 </html>

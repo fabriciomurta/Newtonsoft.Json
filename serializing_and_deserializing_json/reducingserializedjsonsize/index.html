@@ -3,19 +3,34 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="turbo-root" content="/.">
     <meta name="turbo-cache-control" content="no-cache">
 
+    <!-- Primary Meta Tags -->
     <title>Reducing Serialized JSON Size</title>
-
+    <meta name="title" content="Reducing Serialized JSON Size">
     <meta name="description" content="One of the common problems encountered when serializing ." />
 
-    <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/./serializing_and_deserializing_json/reducingserializedjsonsize/">
+    <meta property="og:title" content="Reducing Serialized JSON Size">
+    <meta property="og:description" content="One of the common problems encountered when serializing .">
 
-    <link href="/Newtonsoft.Json/favicon.ico" rel="icon" />
-    <link href="/Newtonsoft.Json/resources/css/retype.css" rel="stylesheet" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="/./serializing_and_deserializing_json/reducingserializedjsonsize/">
+    <meta property="twitter:title" content="Reducing Serialized JSON Size">
+    <meta property="twitter:description" content="One of the common problems encountered when serializing .">
+    
+    <script>(function () { var el = document.documentElement, m = localStorage.getItem("/./doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <script type="text/javascript" src="/Newtonsoft.Json/resources/js/config.js" defer></script>
-    <script type="text/javascript" src="/Newtonsoft.Json/resources/js/retype.js" defer></script>
+    <link href="/./favicon.ico" rel="icon" />
+    <link href="/./resources/css/retype.css?v=1.9.686342985264" rel="stylesheet" data-turbo-track="reload" />
+
+    <script type="text/javascript" src="/./resources/js/config.js?v=1.9.686342985264" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/./resources/js/retype.js?v=1.9" defer data-turbo-track="reload"></script>
+    <script id="prism-js" type="text/javascript" src="/./resources/js/prism.js?v=1.9.686342985264" defer></script>
 </head>
     <body>
         <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -30,13 +45,9 @@
         <!-- Logo -->
         <div class="flex items-center justify-between h-full py-2 md:w-75">
             <div class="flex items-center px-2 md:px-6">
-                <span id="docs-site-logo" class="dark:text-white text-2xl leading-snug font-semibold line-clamp-1 md:line-clamp-2">
-                    <a href="/Newtonsoft.Json/">
-                        <img class="dark:hidden" src="/Newtonsoft.Json/static/jsonnet-logo.svg">
-                        <img class="hidden dark:block" src="/Newtonsoft.Json/static/jsonnet-logo-dark.svg">
-                    </a>
-                </span>
-                <span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Docs</span>
+                <a id="docs-site-logo" href="/./" class="flex items-center leading-snug text-2xl">
+                    <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Project Name</span>
+                </a>
             </div>
 
             <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
@@ -122,7 +133,7 @@
         <a
     class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in"
     target="_blank"
-    href="https://retype.com"
+    href="https://retype.com/"
     rel="noopener"
 >
     <span class="text-xs whitespace-nowrap">Powered by</span>
@@ -161,7 +172,7 @@
             <a
     class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in"
     target="_blank"
-    href="https://retype.com"
+    href="https://retype.com/"
     rel="noopener"
 >
     <span class="text-xs whitespace-nowrap">Powered by</span>
@@ -197,7 +208,7 @@
         <span>JsonIgnoreAttribute and DataMemberAttribute</span>
     </h2>
 </doc-anchor-target>
-<p>By default Json.NET will include all of a class&#39;s public properties and fields in the JSON it creates. Adding the <a href="/Newtonsoft.Json/api/newtonsoft/json/jsonignoreattribute/">JsonIgnoreAttribute</a> to a property tells the serializer to always skip writing it to the JSON result.</p>
+<p>By default Json.NET will include all of a class&#x27;s public properties and fields in the JSON it creates. Adding the <a href="/api/newtonsoft/json/jsonignoreattribute/">JsonIgnoreAttribute</a> to a property tells the serializer to always skip writing it to the JSON result.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">Opt-out Serialization Example</div>
 <pre class="language-csharp"><code v-pre class="language-csharp">public class Car
@@ -238,14 +249,14 @@ public class Computer
         <span>Formatting</span>
     </h2>
 </doc-anchor-target>
-<p>JSON written by the serializer with an option of <a href="/Newtonsoft.Json/api/newtonsoft/json/formatting/">Formatting</a> set to Indented produces nicely formatted, easy-to-read JSON that is great for readability when you are developing. <code v-pre>Formatting.None</code> on the other hand keeps the JSON result small, skipping all unnecessary spaces and line breaks to produce the most compact and efficient JSON possible.</p>
+<p>JSON written by the serializer with an option of <a href="/api/newtonsoft/json/formatting/">Formatting</a> set to Indented produces nicely formatted, easy-to-read JSON that is great for readability when you are developing. <code v-pre>Formatting.None</code> on the other hand keeps the JSON result small, skipping all unnecessary spaces and line breaks to produce the most compact and efficient JSON possible.</p>
 <doc-anchor-target id="nullvaluehandling">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#nullvaluehandling">#</doc-anchor-trigger>
         <span>NullValueHandling</span>
     </h2>
 </doc-anchor-target>
-<p><a href="/Newtonsoft.Json/api/newtonsoft/json/nullvaluehandling/">NullValueHandling</a> is an option on the JsonSerializer and controls how the serializer handles properties with a null value. By setting a value of NullValueHandling.Ignore the JsonSerializer skips writing any properties that have a value of null.</p>
+<p><a href="/api/newtonsoft/json/nullvaluehandling/">NullValueHandling</a> is an option on the JsonSerializer and controls how the serializer handles properties with a null value. By setting a value of NullValueHandling.Ignore the JsonSerializer skips writing any properties that have a value of null.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">NullValueHandling Class</div>
 <pre class="language-csharp"><code v-pre class="language-csharp">public class Movie
@@ -286,16 +297,16 @@ string ignored = JsonConvert.SerializeObject(movie,
 //   &quot;Description&quot;: &quot;It's no Bad Boys&quot;
 // }</code></pre>
 </doc-codeblock></div>
-<p>NullValueHandling can also be customized on individual properties using the <a href="/Newtonsoft.Json/api/newtonsoft/json/jsonpropertyattribute/">JsonPropertyAttribute</a>. The JsonPropertyAttribute value of NullValueHandling will override the setting on the JsonSerializer for that property.</p>
+<p>NullValueHandling can also be customized on individual properties using the <a href="/api/newtonsoft/json/jsonpropertyattribute/">JsonPropertyAttribute</a>. The JsonPropertyAttribute value of NullValueHandling will override the setting on the JsonSerializer for that property.</p>
 <doc-anchor-target id="defaultvaluehandling">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#defaultvaluehandling">#</doc-anchor-trigger>
         <span>DefaultValueHandling</span>
     </h2>
 </doc-anchor-target>
-<p><a href="/Newtonsoft.Json/api/newtonsoft/json/defaultvaluehandling/">DefaultValueHandling</a> is an option on the JsonSerializer and controls how the serializer handles properties with a default value. Setting a value of DefaultValueHandling.Ignore will make the JsonSerializer skip writing any properties that have a default value to the JSON result. For object references this will be null. For value types like int and DateTime the serializer will skip the default uninitialized value for that value type.</p>
+<p><a href="/api/newtonsoft/json/defaultvaluehandling/">DefaultValueHandling</a> is an option on the JsonSerializer and controls how the serializer handles properties with a default value. Setting a value of DefaultValueHandling.Ignore will make the JsonSerializer skip writing any properties that have a default value to the JSON result. For object references this will be null. For value types like int and DateTime the serializer will skip the default uninitialized value for that value type.</p>
 <p>Json.NET also allows you to customize what the default value of an individual
-property is using the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.defaultvalueattribute">DefaultValueAttribute</a>. For example, if a string property called Department always returns an empty string in its default state and you don&#39;t want that empty string in your JSON, then placing the DefaultValueAttribute on Department with that value will mean Department is no longer written to JSON unless it has a value.</p>
+property is using the <a href="https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.defaultvalueattribute">DefaultValueAttribute</a>. For example, if a string property called Department always returns an empty string in its default state and you don&#x27;t want that empty string in your JSON, then placing the DefaultValueAttribute on Department with that value will mean Department is no longer written to JSON unless it has a value.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">DefaultValueHandling Class</div>
 <pre class="language-csharp"><code v-pre class="language-csharp">public class Invoice
@@ -350,14 +361,14 @@ string ignored = JsonConvert.SerializeObject(invoice,
 //   &quot;Amount&quot;: 50.0
 // }</code></pre>
 </doc-codeblock></div>
-<p>DefaultValueHandling can also be customized on individual properties using the <a href="/Newtonsoft.Json/api/newtonsoft/json/jsonpropertyattribute/">JsonPropertyAttribute</a>. The JsonPropertyAttribute value of DefaultValueHandling will override the setting on the JsonSerializer for that property.</p>
+<p>DefaultValueHandling can also be customized on individual properties using the <a href="/api/newtonsoft/json/jsonpropertyattribute/">JsonPropertyAttribute</a>. The JsonPropertyAttribute value of DefaultValueHandling will override the setting on the JsonSerializer for that property.</p>
 <doc-anchor-target id="icontractresolver">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#icontractresolver">#</doc-anchor-trigger>
         <span>IContractResolver</span>
     </h2>
 </doc-anchor-target>
-<p>For more flexibility, the <a href="/Newtonsoft.Json/api/newtonsoft/json/serialization/icontractresolver/">IContractResolver</a> provides an interface to customize almost every aspect of how a .NET object gets serialized to JSON, including changing serialization behavior at runtime.</p>
+<p>For more flexibility, the <a href="/api/newtonsoft/json/serialization/icontractresolver/">IContractResolver</a> provides an interface to customize almost every aspect of how a .NET object gets serialized to JSON, including changing serialization behavior at runtime.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">IContractResolver Class</div>
 <pre class="language-csharp"><code v-pre class="language-csharp">public class DynamicContractResolver : DefaultContractResolver
@@ -425,29 +436,23 @@ string startingWithB = JsonConvert.SerializeObject(book, Formatting.Indented,
     </h2>
 </doc-anchor-target>
 <ul>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/formatting/">Formatting</a></li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/jsonignoreattribute/">JsonIgnoreAttribute</a></li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/defaultvaluehandling/">DefaultValueHandling</a></li>
-<li><a href="/Newtonsoft.Json/api/newtonsoft/json/nullvaluehandling/">NullValueHandling</a></li>
+<li><a href="/api/newtonsoft/json/formatting/">Formatting</a></li>
+<li><a href="/api/newtonsoft/json/jsonignoreattribute/">JsonIgnoreAttribute</a></li>
+<li><a href="/api/newtonsoft/json/defaultvaluehandling/">DefaultValueHandling</a></li>
+<li><a href="/api/newtonsoft/json/nullvaluehandling/">NullValueHandling</a></li>
 </ul>
 
-    
+
+
+
                 <!-- Required only on API pages -->
                 <doc-toolbar-member-filter-no-results />
             </div>
 
-            <div class="mt-14 flex flex-wrap items-center justify-between">
-    <a class="my-2.5 inline-flex items-center text-sm whitespace-nowrap text-blue-500 dark:text-blue-400 hover:text-blue-700 hover:underline" href="https://github.com/geoffreymcgill/Newtonsoft.Json/blob/master/docs/Serializing_and_Deserializing_JSON/ReducingSerializedJSONSize.md" target="_blank" rel="noopener">
-        <svg class="mr-1.5" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M20 12c-.55 0-1 .45-1 1v7c0 .55-.45 1-1 1H4c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h7c.55 0 1-.45 1-1s-.45-1-1-1H4C2.35 3 1 4.35 1 6v14c0 1.65 1.35 3 3 3h14c1.65 0 3-1.35 3-3v-7c0-.55-.45-1-1-1z" /><path d="M22.21 1.79c-1.18-1.18-3.24-1.18-4.41 0l-9.5 9.5c-.13.13-.22.29-.26.46l-1 4c-.08.34.01.7.26.95.18.2.44.3.7.3.08 0 .16-.01.24-.03l4-1c.18-.04.34-.13.46-.26l9.5-9.5c1.22-1.22 1.22-3.2.01-4.42zm-1.42 3l-9.3 9.3-2.11.53.53-2.11 9.3-9.3c.42-.42 1.16-.42 1.59 0 .43.43.43 1.15-.01 1.58z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-        <span>Edit this page</span>
-    </a>
-
-    <!--<p class="my-2.5 text-gray-500 dark:text-dark-350 text-sm">Last updated on <strong>2021-03-14</strong> by <strong>Geoffrey McGill</strong></p>-->
-</div>
-
+            
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-6 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/Newtonsoft.Json/serializing_and_deserializing_json/preserveobjectreferences">
+        <a class="px-5 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/./serializing_and_deserializing_json/preserveobjectreferences/">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
@@ -457,9 +462,9 @@ string startingWithB = JsonConvert.SerializeObject(book, Formatting.Indented,
     </div>
 
     <div class="w-1/2">
-        <a class="px-6 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/Newtonsoft.Json/serializing_and_deserializing_json/serializationattributes">
+        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/./serializing_and_deserializing_json/serializationattributes/">
             <span>
-                <span class="block text-right text-xs font-normal text-gray-400 dark:text-dark-400">Next</span>
+                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
                 <span class="block mt-1">Serialization Attributes</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
@@ -486,7 +491,7 @@ string startingWithB = JsonConvert.SerializeObject(book, Formatting.Indented,
 </ul>
 
     </div>
-    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>&#169; 2021 Newtonsoft</p>
+    <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© 2021 Newtonsoft</p>
 </div>
 </footer>
 
@@ -517,6 +522,6 @@ string startingWithB = JsonConvert.SerializeObject(book, Formatting.Indented,
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Reducing Serialized JSON Size", icon: "file" }</script>
+        <script>window.__DOCS__ = { "title": "Reducing Serialized JSON Size", icon: "file", hasPrism: true, hasMermaid: false }</script>
     </body>
 </html>
